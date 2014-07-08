@@ -1,6 +1,6 @@
 package net.talqum.learning.lang.datastructures.linkedlist;
 
-import net.talqum.learning.lang.datastructures.tree.Node;
+import net.talqum.learning.lang.datastructures.Node;
 
 import java.util.Iterator;
 

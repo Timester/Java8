@@ -1,4 +1,4 @@
-package net.talqum.learning.lang.datastructures.tree;
+package net.talqum.learning.lang.datastructures;
 
 /**
  * Created by Tömösvári Imre on 2014.07.03..

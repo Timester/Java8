@@ -1,6 +1,6 @@
 package net.talqum.learning.lang.datastructures.tree.binarysearch;
 
-import net.talqum.learning.lang.datastructures.tree.Node;
+import net.talqum.learning.lang.datastructures.Node;
 
 /**
  * Created by Tömösvári Imre on 2014.07.02..

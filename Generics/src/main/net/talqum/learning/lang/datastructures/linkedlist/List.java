@@ -5,6 +5,7 @@ package net.talqum.learning.lang.datastructures.linkedlist;
  */
 public interface List<T extends Comparable<T>> {
     public void add(T toAdd);
+    public void addAt(T toAdd, int index);
     public void addAll(List<? extends T> c);
     public T get(int index);
     public void remove(T toDelete);

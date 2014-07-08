@@ -1,6 +1,6 @@
 package net.talqum.learning.lang.datastructures.linkedlist;
 
-import net.talqum.learning.lang.datastructures.tree.Node;
+import net.talqum.learning.lang.datastructures.Node;
 
 import java.util.Iterator;
 
@@ -17,10 +17,6 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
         size = 0;
     }
 
-    public int getSize() {
-        return size;
-    }
-
     @Override
     public void add(T toAdd) {
         if(head == null){
@@ -32,6 +28,37 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
                 temp = temp.right;
             }
             temp.right = new Node<>(toAdd, temp, null);
+        }
+
+        size++;
+    }
+
+    @Override
+    public void addAt(T toAdd, int index) {
+        if(head == null){
+            head = new Node<>(toAdd, null, null);
+        }
+        else {
+            if(index >= size){
+                throw new IndexOutOfBoundsException();
+            }
+
+            Node<T> temp = head;
+            for(int i=0; i < index; i++){
+                temp = temp.right;
+            }
+
+            Node<T> newNode = new Node<>(toAdd, temp.left, temp);
+
+            if(temp.left != null){
+                temp.left.right = newNode;
+                temp.left = newNode;
+            }
+            else{
+                temp.left = newNode;
+                head = newNode;
+            }
+
         }
 
         size++;
@@ -106,10 +133,11 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
     @Override
     public boolean contains(T toSearch) {
         Node<T> temp = head;
-        while(temp.right != null) {
+        while(temp != null) {
             if(temp.data.equals(toSearch)){
                 return true;
             }
+            temp = temp.right;
         }
         return false;
     }
@@ -119,10 +147,11 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
         int idx = 0;
 
         Node<T> temp = head;
-        while(temp.right != null) {
+        while(temp != null) {
             if(temp.data.equals(element)){
                 return idx;
             }
+            temp = temp.right;
             idx++;
         }
 
@@ -132,7 +161,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
     @Override
     public T get(int index) {
         Node<T> temp = head;
-        for(int i = 1; i < index; i++){
+        for(int i = 0; i < index; i++){
             if(temp.right != null) {
                 temp = temp.right;
             } else {
