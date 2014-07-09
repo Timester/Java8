@@ -7,7 +7,7 @@ import java.util.Iterator;
 /**
  * Created by Tömösvári Imre on 2014.07.05..
  */
-public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T> {
+public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     private Node<T> head;
     private int size;
@@ -29,7 +29,6 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
             }
             temp.right = new Node<>(toAdd, temp, null);
         }
-
         size++;
     }
 
@@ -38,10 +37,9 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
         if(head == null){
             head = new Node<>(toAdd, null, null);
         }
-        else {
-            if(index >= size){
-                throw new IndexOutOfBoundsException();
-            }
+        else if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException();
+        } else {
 
             Node<T> temp = head;
             for(int i=0; i < index; i++){
@@ -58,15 +56,13 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
                 temp.left = newNode;
                 head = newNode;
             }
-
+            size++;
         }
-
-        size++;
     }
 
     @Override
     public void addAll(List<? extends T> c) {
-
+        //TODO: implement this method
     }
 
     @Override
@@ -93,35 +89,35 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
     }
 
     @Override
-    public void remove(int index) {
-        Node<T> temp = head;
-        for(int i = 1; i < index; i++){
-            if(temp.right != null) {
+    public void removeAt(int index) {
+        if(head == null){
+            return;
+        } else if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException();
+        } else {
+
+            Node<T> temp = head;
+            for (int i = 0; i < index; i++) {
                 temp = temp.right;
-            } else {
-                throw new IndexOutOfBoundsException();
             }
-        }
 
-        if(temp.left != null && temp.right != null){
-            temp.left.right = temp.right;
-            temp.right.left = temp.left;
-        }
-        else if(temp.left != null && temp.right == null){   // last
-            temp.left.right = null;
-        }
-        else if(temp.left == null && temp.right != null){   // first
-            temp.right.left = null;
-            head = temp.right;
-        }
+            if (temp.left != null && temp.right != null) {
+                temp.left.right = temp.right;
+                temp.right.left = temp.left;
+            } else if (temp.left != null && temp.right == null) {   // last
+                temp.left.right = null;
+            } else if (temp.left == null && temp.right != null) {   // first
+                temp.right.left = null;
+                head = temp.right;
+            }
 
-        size--;
-        return;
+            size--;
+        }
     }
 
     @Override
     public void clear() {
-        head.right = null;
+        head = null;
         size = 0;
     }
 
@@ -160,15 +156,19 @@ public class LinkedList<T extends Comparable<T>> implements List<T>, Iterable<T>
 
     @Override
     public T get(int index) {
-        Node<T> temp = head;
-        for(int i = 0; i < index; i++){
-            if(temp.right != null) {
-                temp = temp.right;
-            } else {
-                throw new IndexOutOfBoundsException();
-            }
+        if(head == null){
+            return null;
+        } else if(index < 0 && index >= size) {
+            throw new IndexOutOfBoundsException();
         }
-        return temp.data;
+        else
+        {
+            Node<T> temp = head;
+            for (int i = 0; i < index; i++) {
+                temp = temp.right;
+            }
+            return temp.data;
+        }
     }
 
     @Override
