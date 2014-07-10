@@ -7,8 +7,32 @@ import net.talqum.learning.lang.datastructures.linkedlist.*;
  */
 public class Queue<E extends Comparable<E>> {
 
-    private List<E> elements = new LinkedList<>();
+    private List<E> elements;
+    private int size;
 
+    public Queue(){
+        elements = new LinkedList<>();
+        size = 0;
+    }
 
+    public int size(){
+        return size;
+    }
+
+    public void enqueue(E element){
+        elements.add(element);
+        size++;
+    }
+
+    public E dequeue(){
+        E temp = elements.getFirst();
+        try {
+            elements.removeAt(0);
+        } catch(IndexOutOfBoundsException e){
+            return temp;
+        }
+        size--;
+        return temp;
+    }
 
 }

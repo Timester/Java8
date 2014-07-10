@@ -83,6 +83,11 @@ public class LinkedListTest {
 
     @Test
     public void testRemoveException() throws Exception {
+        exception.expect(IndexOutOfBoundsException.class);
+        lista.remove(2);
+        exception.expect(IndexOutOfBoundsException.class);
+        lista.removeAt(0);
+
         lista.add(2);
         exception.expect(IndexOutOfBoundsException.class);
         lista.removeAt(1);
@@ -125,6 +130,23 @@ public class LinkedListTest {
         assertEquals((Integer)2, lista.get(0));
         assertEquals((Integer)1, lista.get(2));
         assertEquals((Integer)4, lista.get(4));
+
+        exception.expect(IndexOutOfBoundsException.class);
+        lista.get(5);
+    }
+
+    @Test
+    public void testGetFirstGetLast(){
+        assertNull(lista.getFirst());
+        assertNull(lista.getLast());
+
+        lista.add(2);
+        lista.add(3);
+        lista.add(1);
+        lista.add(6);
+
+        assertEquals((Integer)2, lista.getFirst());
+        assertEquals((Integer)6, lista.getLast());
     }
 
     @Test

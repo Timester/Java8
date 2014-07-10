@@ -17,6 +17,15 @@ public class Stack<E> {
         size = 0;
     }
 
+    public Stack(int initialCapacity){
+        if(initialCapacity >= 0) {
+            elements = new Object[initialCapacity];
+        } else {
+            elements = new Object[DEFAULT_CAPACITY];
+        }
+        size = 0;
+    }
+
     public int size(){
         return size;
     }
@@ -42,7 +51,6 @@ public class Stack<E> {
     public boolean isEmpty(){
         return size == 0;
     }
-
 
     private void ensureCapacity(){
         if(elements.length == size){
