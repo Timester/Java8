@@ -1,4 +1,4 @@
-package net.talqum.learning.datastructures.linkedlist;
+package net.talqum.learning.datastructures.list;
 
 /**
  * Created by Tömösvári Imre on 2014.07.05..

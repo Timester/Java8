@@ -1,4 +1,4 @@
-package net.talqum.learning.datastructures.linkedlist;
+package net.talqum.learning.datastructures.list;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -7,7 +7,10 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Iterator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class LinkedListTest {
 
@@ -55,6 +58,22 @@ public class LinkedListTest {
 
         assertEquals((Integer)8, lista.get(6));
         assertEquals((Integer)4, lista.get(7));
+    }
+
+    @Test
+    public void testAddAll() throws Exception {
+        lista.add(2);
+        lista.add(3);
+        lista.add(1);
+
+        List<Integer> lista2 = new LinkedList<>();
+
+        lista2.addAll(lista);
+
+    //    assertEquals((Integer)2 ,lista2.get(0));
+     //   assertEquals((Integer)1 ,lista2.get(2));
+
+        assertEquals(3 ,lista2.size());
     }
 
     @Test
@@ -173,7 +192,17 @@ public class LinkedListTest {
         iter.next();
         iter.next();
         iter.next();
-        assertEquals((Integer)6, iter.next());
+        assertEquals((Integer)5, iter.next());
+        assertTrue(iter.hasNext());
+        iter.next();
         assertFalse(iter.hasNext());
+
+        int size = 0;
+        for(int i : lista){
+            System.out.println(i);
+            size++;
+        }
+
+        assertEquals(5, size);
     }
 }

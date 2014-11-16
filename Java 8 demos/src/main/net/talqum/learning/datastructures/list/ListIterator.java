@@ -1,4 +1,4 @@
-package net.talqum.learning.datastructures.linkedlist;
+package net.talqum.learning.datastructures.list;
 
 import net.talqum.learning.datastructures.Node;
 
@@ -17,15 +17,12 @@ public class ListIterator<T extends Comparable<T>> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return current.right != null;
+        return current != null;
     }
 
     @Override
     public T next() {
-        if(hasNext()){
             current = current.right;
-            return current.data;
-        }
-        return null;
+            return current.left.data;
     }
 }

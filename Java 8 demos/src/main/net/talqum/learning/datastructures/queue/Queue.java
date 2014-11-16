@@ -1,6 +1,6 @@
 package net.talqum.learning.datastructures.queue;
 
-import net.talqum.learning.datastructures.linkedlist.*;
+import net.talqum.learning.datastructures.list.*;
 
 /**
  * Created by Imre on 2014.07.08..

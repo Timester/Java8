@@ -1,4 +1,4 @@
-package net.talqum.learning.datastructures.linkedlist;
+package net.talqum.learning.datastructures.list;
 
 import net.talqum.learning.datastructures.Node;
 
@@ -59,7 +59,9 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void addAll(List<? extends T> c) {
-        //TODO: implement this method
+        for(T a : c){
+            add(a);
+        }
     }
 
     @Override
