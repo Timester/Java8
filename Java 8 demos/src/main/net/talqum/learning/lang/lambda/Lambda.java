@@ -21,7 +21,8 @@ public class Lambda {
         // v3 class
         printPersons(roster, new CheckPersonEligibleForSelectiveService());
         // v3 anonymous class
-        printPersons(roster,
+        printPersons(
+                roster,
                 new CheckPerson() {
                     public boolean test(Person p) {
                         return p.getGender() == Person.Sex.MALE

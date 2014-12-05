@@ -1,4 +1,5 @@
 package net.talqum.learning.datastructures.tree.binarysearch;
+
 import net.talqum.learning.datastructures.Node;
 
 import java.util.Iterator;
