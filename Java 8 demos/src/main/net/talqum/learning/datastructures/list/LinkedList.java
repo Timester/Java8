@@ -103,7 +103,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
                 temp = temp.right;
             }
 
-            if (temp.left != null && temp.right != null) {
+            if (temp.left != null && temp.right != null) {  // middle
                 temp.left.right = temp.right;
                 temp.right.left = temp.left;
             } else if (temp.left != null && temp.right == null) {   // last
@@ -197,7 +197,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new ListIterator<>(head);
+        return new LinkedListIterator<>(head);
     }
 
 

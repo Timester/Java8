@@ -5,7 +5,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,195 +14,213 @@ import static org.junit.Assert.assertTrue;
 
 public class LinkedListTest {
 
-    private List<Integer> lista;
+    private List<Integer> list;
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-
     @Before
     public void init(){
-        lista = new LinkedList<>();
+        list = new LinkedList<>();
     }
 
     @Test
     public void testAddandSize() throws Exception {
-        assertEquals(0, lista.size());
-        lista.add(2);
-        assertEquals(1, lista.size());
-        lista.add(3);
-        assertEquals(2, lista.size());
+        assertEquals(0, list.size());
+        list.add(2);
+        assertEquals(1, list.size());
+        list.add(3);
+        assertEquals(2, list.size());
     }
 
     @Test
     public void testAddAt() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
-        lista.add(6);
-        lista.add(4);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(6);
+        list.add(4);
 
-        lista.addAt(9, 2);
+        list.addAt(9, 2);
 
-        assertEquals((Integer)4, lista.get(5));
-        assertEquals((Integer)3, lista.get(1));
-        assertEquals((Integer)9, lista.get(2));
-        assertEquals((Integer)1, lista.get(3));
+        assertEquals((Integer)4, list.get(5));
+        assertEquals((Integer)3, list.get(1));
+        assertEquals((Integer)9, list.get(2));
+        assertEquals((Integer)1, list.get(3));
 
-        lista.addAt(7, 0);
+        list.addAt(7, 0);
 
-        assertEquals((Integer)7, lista.get(0));
-        assertEquals((Integer)2, lista.get(1));
+        assertEquals((Integer)7, list.get(0));
+        assertEquals((Integer)2, list.get(1));
 
-        lista.addAt(8, 6);
+        list.addAt(8, 6);
 
-        assertEquals((Integer)8, lista.get(6));
-        assertEquals((Integer)4, lista.get(7));
+        assertEquals((Integer)8, list.get(6));
+        assertEquals((Integer)4, list.get(7));
     }
 
     @Test
     public void testAddAll() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(1);
 
         List<Integer> lista2 = new LinkedList<>();
 
-        lista2.addAll(lista);
+        lista2.addAll(list);
 
-    //    assertEquals((Integer)2 ,lista2.get(0));
-     //   assertEquals((Integer)1 ,lista2.get(2));
+        assertEquals((Integer)2 ,lista2.get(0));
+        assertEquals((Integer)1 ,lista2.get(2));
 
         assertEquals(3 ,lista2.size());
     }
 
     @Test
     public void testRemove() throws Exception {
-        lista.add(0);
-        lista.add(1);
-        lista.add(2);
-        lista.add(3);
-        lista.add(4);
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
 
-        lista.removeAt(4);
-        lista.removeAt(2);
-        lista.removeAt(0);
+        list.removeAt(4);
+        list.removeAt(2);
+        list.removeAt(0);
 
-        assertEquals((Integer)1, lista.get(0));
-        assertEquals((Integer)3, lista.get(1));
-        assertEquals(2, lista.size());
+        assertEquals((Integer)1, list.get(0));
+        assertEquals((Integer)3, list.get(1));
+        assertEquals(2, list.size());
 
-        lista.remove(1);
-        assertEquals((Integer)3, lista.get(0));
-        assertEquals(1, lista.size());
+        list.remove(1);
+        assertEquals((Integer)3, list.get(0));
+        assertEquals(1, list.size());
 
-        lista.remove(14);
-        assertEquals(1, lista.size());
+        list.remove(14);
+        assertEquals(1, list.size());
     }
 
     @Test
     public void testRemoveException() throws Exception {
         exception.expect(IndexOutOfBoundsException.class);
-        lista.remove(2);
+        list.remove(2);
         exception.expect(IndexOutOfBoundsException.class);
-        lista.removeAt(0);
+        list.removeAt(0);
 
-        lista.add(2);
+        list.add(2);
         exception.expect(IndexOutOfBoundsException.class);
-        lista.removeAt(1);
+        list.removeAt(1);
     }
 
     @Test
     public void testContains() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
-        lista.add(6);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(6);
 
-        assertTrue(lista.contains(2));
-        assertTrue(lista.contains(1));
-        assertTrue(lista.contains(6));
+        assertTrue(list.contains(2));
+        assertTrue(list.contains(1));
+        assertTrue(list.contains(6));
     }
 
     @Test
     public void testIndexOf() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
-        lista.add(6);
-        lista.add(1);
-        lista.add(4);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(6);
+        list.add(1);
+        list.add(4);
 
-        assertEquals(0, lista.indexOf(2));
-        assertEquals(2, lista.indexOf(1));
-        assertEquals(5, lista.indexOf(4));
+        assertEquals(0, list.indexOf(2));
+        assertEquals(2, list.indexOf(1));
+        assertEquals(5, list.indexOf(4));
     }
 
     @Test
     public void testGet() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
-        lista.add(6);
-        lista.add(4);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(6);
+        list.add(4);
 
-        assertEquals((Integer)2, lista.get(0));
-        assertEquals((Integer)1, lista.get(2));
-        assertEquals((Integer)4, lista.get(4));
+        assertEquals((Integer) 2, list.get(0));
+        assertEquals((Integer)1, list.get(2));
+        assertEquals((Integer) 4, list.get(4));
 
         exception.expect(IndexOutOfBoundsException.class);
-        lista.get(5);
+        list.get(5);
     }
 
     @Test
     public void testGetFirstGetLast(){
-        assertNull(lista.getFirst());
-        assertNull(lista.getLast());
+        assertNull(list.getFirst());
+        assertNull(list.getLast());
 
-        lista.add(2);
-        lista.add(3);
-        lista.add(1);
-        lista.add(6);
+        list.add(2);
+        list.add(3);
+        list.add(1);
+        list.add(6);
 
-        assertEquals((Integer)2, lista.getFirst());
-        assertEquals((Integer)6, lista.getLast());
+        assertEquals((Integer) 2, list.getFirst());
+        assertEquals((Integer) 6, list.getLast());
     }
 
     @Test
     public void testClear() throws Exception {
-        lista.add(2);
-        lista.add(5);
-        assertEquals(2, lista.size());
+        list.add(2);
+        list.add(5);
+        assertEquals(2, list.size());
 
-        lista.clear();
-        assertEquals(0, lista.size());
+        list.clear();
+        assertEquals(0, list.size());
     }
 
     @Test
     public void testIterator() throws Exception {
-        lista.add(2);
-        lista.add(3);
-        lista.add(4);
-        lista.add(5);
-        lista.add(6);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.add(6);
 
-        Iterator<Integer> iter = lista.iterator();
+        LinkedListIterator<Integer> iter = (LinkedListIterator<Integer>) list.iterator();
 
         assertTrue(iter.hasNext());
+        assertEquals(0, iter.nextIndex());
         iter.next();
         iter.next();
         iter.next();
-        assertEquals((Integer)5, iter.next());
+        assertEquals((Integer) 5, iter.next());
         assertTrue(iter.hasNext());
+        assertEquals(4, iter.nextIndex());
         iter.next();
         assertFalse(iter.hasNext());
+        assertEquals(4, iter.previousIndex());
+        assertTrue(iter.hasPrevious());
+        assertEquals((Integer) 6, iter.previous());
+        exception.expect(NoSuchElementException.class);
+        iter.next();
+        iter.previous();
+        iter.previous();
+        iter.previous();
+        iter.previous();
+        iter.previous();
+        assertTrue(iter.hasNext());
+        assertFalse(iter.hasPrevious());
+        exception.expect(NoSuchElementException.class);
+        iter.previous();
+        assertTrue(iter.hasNext());
+        assertEquals(0, iter.nextIndex());
+        assertEquals((Integer)2, iter.next());
 
         int size = 0;
-        for(int i : lista){
-            System.out.println(i);
+        for(int i : list){
             size++;
         }
 
         assertEquals(5, size);
     }
+
 }

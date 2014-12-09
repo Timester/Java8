@@ -28,9 +28,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     @Override
     public void addAt(T toAdd, int index) {
         if(checkIndex(index)){
-            for (int i = size; i > index; i--) {
-                elements[i] = elements[i-1];
-            }
+            System.arraycopy(elements, index, elements, index + 1, size - index);
             elements[index] = toAdd;
             size++;
         }
@@ -82,9 +80,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     public void remove(T toDelete) {
         for (int i=0; i< size; i++) {
             if(((T)elements[i]).equals(toDelete)){
-                for(int j = i; j < size-1; j++){
-                    elements[j] = elements[j+1];
-                }
+                System.arraycopy(elements, i + 1, elements, i, size - 1 - i);
                 size--;
             }
         }
@@ -93,9 +89,7 @@ public class ArrayList<T extends Comparable<T>> implements List<T> {
     @Override
     public void removeAt(int index) {
         if(checkIndex(index)){
-            for(int i = index; i < size-1; i++){
-                elements[i] = elements[i+1];
-            }
+            System.arraycopy(elements, index + 1, elements, index, size - 1 - index);
             size--;
         }
         else{

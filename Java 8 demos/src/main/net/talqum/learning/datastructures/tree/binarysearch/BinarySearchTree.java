@@ -73,7 +73,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Iterable<T>
      * Deletes a value from the tree.
      * @param p root of a subtree
      * @param toDelete value to be deleted
-     * @return
+     * @return p, the root of the subtree
      */
     private Node<T> delete(Node<T> p, T toDelete) {
         if (p == null)
