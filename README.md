@@ -1,11 +1,6 @@
 Java 8
 =====
 
-<<<<<<< HEAD
-My demos of the new Java 8 features, and programming excercises
-
-asad
-=======
 My demos of the new Java 8 features, and other programming excercises.
 
 Currently implemented data structures:
