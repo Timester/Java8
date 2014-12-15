@@ -18,4 +18,3 @@ Current Java 8 demos:
 <ul>
 <li>Lambdas + method references</li>
 </ul>
->>>>>>> origin/master
