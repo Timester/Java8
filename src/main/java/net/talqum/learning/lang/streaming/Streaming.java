@@ -59,7 +59,7 @@ public class Streaming {
      */
     public static Double avgHostLengthStreaming(List<URL> URLs){
         return URLs.stream()
-            .mapToDouble(u -> u.getHost().length())
+            .mapToInt(u -> u.getHost().length())
             .average()
             .getAsDouble();
     }
