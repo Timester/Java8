@@ -17,4 +17,5 @@ Current Java 8 demos:
 
 <ul>
 <li>Lambdas + method references</li>
+<li>Stream API</li>
 </ul>
