@@ -11,7 +11,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Created by Tömösvári Imre on 2014.06.23..
+ * Created by Tömösvári Imre on 2014.06.23.
+ * 
+ * Examples from the official Java Tutorial put together.
  */
 public class Lambda {
 
