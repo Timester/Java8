@@ -4,9 +4,6 @@ import net.talqum.learning.datastructures.Node;
 
 import java.util.Iterator;
 
-/**
- * Created by Tömösvári Imre on 2014.07.05..
- */
 public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     private Node<T> head;

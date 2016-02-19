@@ -2,9 +2,6 @@ package net.talqum.learning.datastructures.list;
 
 import java.util.Iterator;
 
-/**
- * Created by Imre on 2014.11.06..
- */
 public class ArrayList<T extends Comparable<T>> implements List<T> {
 
     public static final int INITIAL_CAPACITY = 256;

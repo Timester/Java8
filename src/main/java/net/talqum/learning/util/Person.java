@@ -3,10 +3,6 @@ package net.talqum.learning.util;
 import java.time.LocalDate;
 import java.time.Period;
 
-/**
- * Created by Tömösvári Imre on 2014.06.23..
- * Model object for the demos. Implements Comparable.
- */
 public class Person implements Comparable<Person>{
 
     public enum Sex {
@@ -66,5 +62,24 @@ public class Person implements Comparable<Person>{
     public int compareTo(Person other)
     {
         return this.name.compareTo(other.getName());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Person person = (Person) o;
+
+        return name.equals(person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }

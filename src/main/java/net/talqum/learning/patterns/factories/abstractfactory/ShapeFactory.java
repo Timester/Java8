@@ -4,21 +4,15 @@ import net.talqum.learning.patterns.factories.Circle;
 import net.talqum.learning.patterns.factories.Rectangle;
 import net.talqum.learning.patterns.factories.Shape;
 
-/**
- * Created by Tömösvári Imre on 2014.12.22..
- */
 public class ShapeFactory extends AbstractFactory {
 
     @Override
     public Shape getShape(String shapeType){
-        if(shapeType == null){
-            return null;
-        }
-        if(shapeType.equalsIgnoreCase("CIRCLE")){
+        if("CIRCLE".equalsIgnoreCase(shapeType)) {
             return new Circle();
-        } else if(shapeType.equalsIgnoreCase("RECTANGLE")){
+        } else if("RECTANGLE".equalsIgnoreCase(shapeType)) {
             return new Rectangle();
-        } else{
+        } else {
             return null;
         }
     }

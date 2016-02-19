@@ -1,22 +1,23 @@
 package net.talqum.learning.lang.lambda;
 
-/**
- * Created by Tömösvári Imre on 2014.06.23..
- */
 public class HelloWorldAnonymousClasses {
 
     interface HelloWorld {
-        public void greet();
-        public void greetSomeone(String someone);
+        void greet();
+        void greetSomeone(String someone);
     }
 
     public void sayHello() {
 
         class EnglishGreeting implements HelloWorld {
             String name = "world";
+
+            @Override
             public void greet() {
                 greetSomeone("world");
             }
+
+            @Override
             public void greetSomeone(String someone) {
                 name = someone;
                 System.out.println("Hello " + name);
@@ -27,9 +28,13 @@ public class HelloWorldAnonymousClasses {
 
         HelloWorld frenchGreeting = new HelloWorld() {
             String name = "tout le monde";
+
+            @Override
             public void greet() {
                 greetSomeone("tout le monde");
             }
+
+            @Override
             public void greetSomeone(String someone) {
                 name = someone;
                 System.out.println("Salut " + name);
@@ -38,14 +43,19 @@ public class HelloWorldAnonymousClasses {
 
         HelloWorld spanishGreeting = new HelloWorld() {
             String name = "mundo";
+
+            @Override
             public void greet() {
                 greetSomeone("mundo");
             }
+
+            @Override
             public void greetSomeone(String someone) {
                 name = someone;
                 System.out.println("Hola, " + name);
             }
         };
+
         englishGreeting.greet();
         frenchGreeting.greetSomeone("Fred");
         spanishGreeting.greet();

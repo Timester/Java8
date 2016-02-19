@@ -4,9 +4,6 @@ import net.talqum.learning.datastructures.Node;
 
 import java.util.Iterator;
 
-/**
- * Created by Tömösvári Imre on 2014.07.03..
- */
 public class BinarySearchTree<T extends Comparable<T>> implements Iterable<T>
 {
     protected Node<T> root;

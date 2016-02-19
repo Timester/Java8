@@ -10,11 +10,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-/**
- * Created by Tömösvári Imre on 2014.06.23.
- * 
- * Examples from the official Java Tutorial put together.
- */
 public class Lambda {
 
     public static void main(String[] args) {
@@ -47,13 +42,13 @@ public class Lambda {
                         && p.getAge() >= 18
                         && p.getAge() <= 25
         );
-        // v5 lambda for method invocation after the test
+        // v5 lambda for method invocation after the test, method reference
         processPersons(
                 roster,
                 p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
-                p -> p.printPerson()
+                Person::printPerson
         );
         // v6 lambda for method, return value
         processPersonsWithFunction(
@@ -61,8 +56,8 @@ public class Lambda {
                 p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
-                p -> p.getEmailAddress(),
-                email -> System.out.println(email)
+                Person::getEmailAddress,
+                System.out::println
         );
         // v7 v6 but with generics
         processElements(
@@ -70,8 +65,8 @@ public class Lambda {
                 p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
                         && p.getAge() <= 25,
-                p -> p.getEmailAddress(),
-                email -> System.out.println(email)
+                Person::getEmailAddress,
+                System.out::println
         );
         // v8 aggregate operations
         roster.stream()
@@ -79,8 +74,8 @@ public class Lambda {
                         p -> p.getGender() == Person.Sex.MALE
                                 && p.getAge() >= 18
                                 && p.getAge() <= 25)
-                .map(p -> p.getEmailAddress())
-                .forEach(email -> System.out.println(email));
+                .map(Person::getEmailAddress)
+                .forEach(System.out::println);
 
 
         // method reference

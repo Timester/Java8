@@ -2,9 +2,6 @@ package net.talqum.learning.datastructures.tree.binarysearch;
 
 import net.talqum.learning.datastructures.Node;
 
-/**
- * Created by Tömösvári Imre on 2014.07.02..
- */
 public class AdvancedBinarySearchTree<T extends Comparable<T>> extends BinarySearchTree<T>
 {
 

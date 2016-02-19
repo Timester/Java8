@@ -1,8 +1,5 @@
 package net.talqum.learning.lang.lambda;
 
-/**
- * Created by Tömösvári Imre on 2014.06.23..
- */
 public class LambdaCalculator {
 
     interface IntegerMath {

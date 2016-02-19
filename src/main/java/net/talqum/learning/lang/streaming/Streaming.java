@@ -1,11 +1,13 @@
 package net.talqum.learning.lang.streaming;
 
-import java.net.URL;
-import java.util.List;
+import net.talqum.learning.util.Credential;
+import net.talqum.learning.util.User;
 
-/**
- * Created by Imre on 2014.11.06..
- */
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Streaming {
 
     /**
@@ -64,6 +66,30 @@ public class Streaming {
             .getAsDouble();
     }
 
+    /**
+     * Converts a List of objects of type A to a list of objects of type B the traditional way.
+     *
+     * @param credentials a list of Credential objects
+     * @return a list of User objects
+     */
+    public static List<User> listOfCredentialsToUsers(List<Credential> credentials) {
+        List<User> users = new ArrayList<>(credentials.size());
+        for (Credential credential : credentials) {
+            users.add(User.fromCrendentials(credential));
+        }
 
+        return users;
+    }
 
+    /**
+     * Converts a List of objects of type A to a list of objects of type B using Streaming API.
+     *
+     * @param credentials a list of Credential objects
+     * @return a list of User objects
+     */
+    public static List<User> listOfCredentialsToUsersStreaming(List<Credential> credentials) {
+        return credentials.stream()
+                .map(User::fromCrendentials)
+                .collect(Collectors.toList());
+    }
 }

@@ -2,9 +2,6 @@ package net.talqum.learning.datastructures.queue;
 
 import net.talqum.learning.datastructures.list.*;
 
-/**
- * Created by Imre on 2014.07.08..
- */
 public class Queue<E extends Comparable<E>> {
 
     private List<E> elements;
@@ -28,7 +25,7 @@ public class Queue<E extends Comparable<E>> {
         E temp = elements.getFirst();
         try {
             elements.removeAt(0);
-        } catch(IndexOutOfBoundsException e){
+        } catch(IndexOutOfBoundsException e) {
             return temp;
         }
         size--;

@@ -1,8 +1,5 @@
 package net.talqum.learning.datastructures;
 
-/**
- * Created by Tömösvári Imre on 2014.07.03..
- */
 public class Node<T extends Comparable<T>>
 {
     public T data;

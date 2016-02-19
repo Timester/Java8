@@ -2,9 +2,6 @@ package net.talqum.learning.patterns.factories.abstractfactory;
 
 import net.talqum.learning.patterns.factories.Shape;
 
-/**
- * Created by Tömösvári Imre on 2014.12.22..
- */
 public class ColorFactory extends AbstractFactory {
 
     @Override
@@ -14,12 +11,9 @@ public class ColorFactory extends AbstractFactory {
 
     @Override
     Color getColor(String color) {
-        if(color == null){
-            return null;
-        }
-        if(color.equalsIgnoreCase("RED")){
+        if("RED".equalsIgnoreCase(color)) {
             return new Red();
-        } else if(color.equalsIgnoreCase("GREEN")){
+        } else if("GREEN".equalsIgnoreCase(color)) {
             return new Green();
         } else {
             return null;

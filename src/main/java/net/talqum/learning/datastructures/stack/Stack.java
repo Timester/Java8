@@ -3,9 +3,6 @@ package net.talqum.learning.datastructures.stack;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
-/**
- * Created by Imre on 2014.07.07..
- */
 public class Stack<E> {
 
     private Object[] elements;

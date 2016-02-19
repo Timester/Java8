@@ -1,12 +1,5 @@
 package net.talqum.learning.patterns.builder;
 
-/**
- * Created by Tömösvári Imre on 2014.12.22.
- *
- * Builder pattern for initializing classes.
- *
- * SmartPhone - immutable example class,
- */
 public class SmartPhone {
     private final long id;
     private final String manufacturer;

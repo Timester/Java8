@@ -5,9 +5,6 @@ import net.talqum.learning.datastructures.Node;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- * Created by Tömösvári Imre on 2014.07.05..
- */
 public class LinkedListIterator<T extends Comparable<T>> implements Iterator<T> {
 
     private Node<T> current;
